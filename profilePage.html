@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="css/style-profilePage.css">
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <div class="logo">
+            <img src="images/LogoLexoria.png" alt="Lexoria">
+            <span>lexoria</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search">
+        </div>
+        <div class="profile">
+            <button class="write-btn" onclick="toggleDropdown()">Menulis ▼</button>
+            <div class="dropdown" id="dropdown-menu">
+                <a href="#">Buat cerita baru</a>
+                <a href="#">Ceritaku</a>
+            </div>
+            <div class="profile-icon">N</div>
+        </div>
+    </div>
+
+    <!-- Cover Profile -->
+    <div class="cover-container">
+        <img src="images/Cover.jpg" alt="Cover">
+    </div>
+
+    <!-- Profile Info -->
+    <div class="profile-info">
+        <div class="profile-pic">N</div>
+        <h2 id="username">Nama Lengkap</h2>
+        <p>@UserName</p>
+        <div class="stats">
+            <span>0 Karya</span>
+            <span>1 Daftar Bacaan</span>
+            <span>0 Pengikut</span>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#">Tentang</a>
+        <a href="#">Percakapan</a>
+        <a href="#">Mengikuti</a>
+        <button class="edit-profile" id="editProfileBtn">Edit Profile</button>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <i class="location-icon">📍</i> <strong>Lokasi</strong>
+                <p><strong>Bergabung</strong> pada 27 Agustus 2025</p>
+            </div>
+            <div class="sidebar-section">
+                <strong>Mengikuti</strong>
+                <div class="following-list">
+                    <div class="circle">
+                        <img src="link-foto-follower.jpg" alt="Follower">
+                    </div>
+                </div>                    
+            </div>
+            <div class="sidebar-section share-profile">
+                <strong>Bagikan Profil</strong>
+                <div class="circle">
+                    <img src="facebook-icon.png" alt="Facebook">
+                </div>
+            </div>                          
+        </div>        
+        <div class="reading-list">
+            <h2>1 Daftar Bacaan</h2>
+            <h3>Daftar Bacaan Fantasi <i>></i></h3>
+            <p>Daftar Bacaan • 5 Cerita</p>
+            <div class="book-list">
+                <div class="book" onclick="highlightBook(this)">
+                    <img src="images/LITNW.jpg" alt="LINTW">
+                    <p>LINTW</p>
+                    <div class="book-info">
+                        <i>👁 835K</i>
+                        <i>📖 1.35K</i>
+                    </div>
+                </div>
+                <div class="book" onclick="highlightBook(this)">
+                    <img src="images/Lost Stars.jpg" alt="Lost Stars">
+                    <p>Lost Stars</p>
+                    <div class="book-info">
+                        <i>👁 835K</i>
+                        <i>📖 61</i>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="images/Nightbooks.jpg" alt="Nightbooks">
+                    <p>Nightbooks</p>
+                    <div class="book-info">
+                        <i>👁 835K</i>
+                        <i>📖 1.35K</i>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="images/Tales of Wonder.jpg" alt="Tales of Wonder">
+                    <p>Tales of Wonder</p>
+                    <div class="book-info">
+                        <i>👁 835K</i>
+                        <i>📖 61</i>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="images/The Ninth Life.jpg" alt="The Ninth Life">
+                    <p>The Ninth Life</p>
+                    <div class="book-info">
+                        <i>👁 835K</i>
+                        <i>📖 1.35K</i>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <script type="text/javascript">
+
+        /*Menampilkan atau menyembunyikan dropdown menu saat tombol "Menulis" diklik*/
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdown-menu");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        /*Menutup dropdown jika pengguna mengklik di luar tombol "Menulis"*/
+        document.addEventListener("click", function(event) {
+            const dropdown = document.getElementById("dropdown-menu");
+            if (!event.target.closest(".write-btn")) {
+                dropdown.style.display = "none";
+            }
+        });
+
+        /*Ketika tombol diklik, pengguna dapat memasukkan nama baru, lalu nama tersebut diperbarui di tampilan*/
+        function editProfile() {
+        // Ubah Nama
+        let newName = prompt("Masukkan nama baru:");
+        if (newName) {
+            document.getElementById("username").textContent = newName;
+        }}
+        document.getElementById("editProfileBtn").addEventListener("click", editProfile);
+
+        /*Setiap kali pengguna mengetik sesuatu di kolom pencarian, teksnya ditampilkan di console*/
+        document.getElementById("searchInput").addEventListener("keyup", function () {
+            console.log("User sedang mencari: " + this.value);
+        });
+    </script>
+
+</body>
+</html>
